@@ -1,0 +1,6 @@
+[postgresql]
+host=localhost
+user=postgres
+password=nhatduy1987
+port=5432
+database=rice_sen1
