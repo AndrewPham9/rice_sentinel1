@@ -1,0 +1,15 @@
+# Sử dụng # để comment và có thể để cách dòng cho dễ đọc.
+# Đơn giản nhất là tên file cần ignore: example.exe
+# Hay cả thư mục: example_folder/
+# Khi ignore thư mục nên có dấu / ở sau tên thư mục để nhận biết đó là thư mục, nếu không nó có thể là coi là thư mục hoặc file hay symbolic link.
+# Dấu ! phía trước có ý nghĩa phủ định: !abc/example.exe
+# Sử dụng 1 * để tìm các file có cùng định dạng. Ví dụ như bạn muốn ignore tất cả các file .xml trong project: *.xml
+# Trường hợp khác của 1 * nếu bạn chỉ rõ đường dẫn ví dụ: config/*.xml thì nó chỉ có hiệu lực cho các file config/abc.xml mà không có hiệu lực cho các file config/sub/abc.xml.
+# Sử dụng ** để có hiệu lực cho các thư mục không cần định rõ tên. Ví dụ: **/foo nó sẽ có hiệu lực cho tất cả file hoặc thư mục có tên là foo ở mọi nơi trong project.
+# Hay sử dụng kiểu folder/** để có hiệu lực cho tất cả các file bên trong thư mục.
+
+*.tif
+*.TIF
+*.zip
+*.rar
+*.tar.gz
