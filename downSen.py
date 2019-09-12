@@ -117,8 +117,3 @@ def download(shp, platform, sense_date):
 	print ('heading to process!!')
 	return uuid_names
 
-
-platform = '(platformname:Sentinel-1 AND producttype:GRD)'
-shp = 'D:/python/STAC_intern_project/shp/angiang/angiang.shp'
-date = '20181221'
-download(shp, platform, date)

@@ -5,13 +5,6 @@ import glob
 from datetime import datetime
 import config_this
 
-
-infolder = 'D:/python/STAC_intern_project/snappy/rice_sentinel1_test/No_clip/rice_test'
-inRasters = glob.glob(infolder + '/*.tif')
-inRasters2 = list()
-for inRaster in inRasters:
-	inRasters2.append(inRaster.replace('\\','/'))
-
 #write list TIff as SNAP format with list inRaster to properies_1
 def write_properties(inRasters, properties_1):
 	properties_files = str()

@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import scipy
-import scipy.ndimage as scipy_ndim
 from osgeo import gdal
 from osgeo import ogr
 import os
@@ -16,19 +14,10 @@ def createTiff(arr, imageDim, outband):
     outDs.GetRasterBand(1).WriteArray(arr)
 
 
-multi_raster_pth = 'D:/python/STAC_intern_project/snappy/rice_sentinel1_test/angiang/stacked_multiTemporalFilter_rice_20190606.tif'
-	
-multi_raster = gdal.Open(multi_raster_pth)
-#return a 3d array of multi_raster
-multi_sigma0 = multi_raster.ReadAsArray()
-multi_dB = 10*np.log10(multi_sigma0)
-dB_sorted = np.sort(multi_dB, axis=0, kind='quicksort', order=None)
-
 
 def linear_timeseries_image (matrix_3d, parts, rasterDim):
 	Y = np.reshape(matrix_3d, (matrix_3d.shape[0],-1))
 	len_Y = Y.shape[1]
-	print (len_Y)
 	chunk_matrixs = list()
 
 	if (len_Y/parts)%1 == 0:
@@ -58,14 +47,11 @@ def linear_timeseries_image (matrix_3d, parts, rasterDim):
 
 	k_slope_dB_sorted = k_slope_dB_sorted.reshape(matrix_3d.shape[1],matrix_3d.shape[2])	
 	b_constant_dB_sorted = b_constant_dB_sorted.reshape(matrix_3d.shape[1],matrix_3d.shape[2])
-
+	createTiff(k_slope_dB_sorted, rasterDim, 'output/2.tif')
+	createTiff(b_constant_dB_sorted, rasterDim, 'output/3.tif')
 	return ([k_slope_dB_sorted, b_constant_dB_sorted])
-	# print (k_slope_dB_sorted.shape)
-	# print (b_constant_dB_sorted.shape)
-	# createTiff(k_slope_dB_sorted, rasterDim, 'k_slope_dB_sorted.tif')
-	# createTiff(b_constant_dB_sorted, rasterDim, 'b_constant_dB_sorted.tif')
 
-linear_timeseries_image(dB_sorted, 25, multi_raster_pth)
+# linear_timeseries_image(dB_sorted, 25, multi_raster_pth)
 # createTiff(k_slope_dB_sorted, multi_raster_pth, 'k_slope_dB_sorted.tif')
 # createTiff(b_constant_dB_sorted, multi_raster_pth, 'b_constant_dB_sorted.tif')
 

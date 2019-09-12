@@ -4,10 +4,10 @@ gpt=D:/geology_software/SNAP/setuped/snap/bin/gpt.exe
 sen2cor=D:/geology_software/Sen2Cor-02.08.00-win64/Sen2Cor-02.08.00-win64/L2A_Process.bat
 
 [processDataset]
-bat=D:/python/STAC_intern_project/snappy/rice_sentinel1_test/No_clip/config/processDataset.bat
-xml=D:/python/STAC_intern_project/snappy/rice_sentinel1_test/No_clip/config/rice_sar.xml
-properties1=D:/python/STAC_intern_project/snappy/rice_sentinel1_test/No_clip/config/rice_sar1.properties
-properties2=D:/python/STAC_intern_project/snappy/rice_sentinel1_test/No_clip/config/rice_sar2.properties
+bat=D:/python/STAC_intern_project/Download-and-process-sentinel1-rice/config/processDataset.bat
+xml=D:/python/STAC_intern_project/Download-and-process-sentinel1-rice/config/rice_sar.xml
+properties1=D:/python/STAC_intern_project/Download-and-process-sentinel1-rice/config/rice_sar1.properties
+properties2=D:/python/STAC_intern_project/Download-and-process-sentinel1-rice/config/rice_sar2.properties
 
 [login]
 user=andrewduy
@@ -15,8 +15,8 @@ password=nhatduy1987
 polo=https://scihub.copernicus.eu/dhus//login
 
 [filterDataset]
-filter_xml=D:/python/STAC_intern_project/snappy/rice_sentinel1_test/No_clip/config/multi_temporal_filter.xml
-filterxml_properties1=D:/python/STAC_intern_project/snappy/rice_sentinel1_test/No_clip/config/multi_temporal_filter1.properties
+filter_xml=D:/python/STAC_intern_project/Download-and-process-sentinel1-rice/config/multi_temporal_filter.xml
+filterxml_properties1=D:/python/STAC_intern_project/Download-and-process-sentinel1-rice/config/multi_temporal_filter1.properties
 
 [py_machine]
 py3=C:/Users/USER/AppData/Local/Programs/Python/Python36/python.exe
