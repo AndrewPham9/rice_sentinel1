@@ -2,6 +2,7 @@ import psycopg2
 import configparser
 from datetime import date, timedelta, datetime
 
+
 #create a dictionary of parameter using configparser
 def config (configFile = 'config/db.txt', section = 'postgresql'):
 	parser = configparser.ConfigParser()
@@ -86,7 +87,7 @@ def select_since_6months(table, today = None):
 	else:
 		today = datetime.strptime(today, "%Y%m%d").date()
 
-	back_7months = today - timedelta(210)
+	back_7months = today - timedelta(183)
 	today = today.strftime("%Y-%m-%d")
 	back_7months = back_7months.strftime("%Y-%m-%d")
 	paths_1 = selectCol_2_date('%s'%(table), 'path', date1 = '%s'%(back_7months), date2 = '%s'%(today))

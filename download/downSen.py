@@ -1,5 +1,4 @@
 import requests
-from osgeo import gdal
 from osgeo import ogr
 import xml.etree.ElementTree as ET
 import os

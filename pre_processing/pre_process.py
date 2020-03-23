@@ -5,16 +5,18 @@ import os
 from glob import glob
 import configparser
 import shutil
-import config_this
+import sys
+sys.path.insert(1, '../')
+from config import config_this
 
 
 def processByXML (infolder, shp ,province, outfolder):
 	##config all
 	con = config_this.config(section='config')
-	wget, gpt, sen2cor = con['wget'], con['gpt'], con['sen2cor']
+	gpt = con['gpt']
 
 	processDataset = config_this.config(section='processDataset')
-	bat, XML, properties1, properties2= processDataset['bat'], processDataset['xml'], processDataset['properties1'],  processDataset['properties2']
+	XML, properties1, properties2= processDataset['xml'], processDataset['properties1'],  processDataset['properties2']
 
 
 	#put sourceproduct_2 as inraster
@@ -22,7 +24,7 @@ def processByXML (infolder, shp ,province, outfolder):
 	outRaster = sourceproduct_1.replace('.SAFE','')
 
 	# insert geometry of shape file to cutline in SNAP
-	driver = ogr.GetDriverByName("ESRI Shapefile")	
+	driver = ogr.GetDriverByName("ESRI Shapefile")
 	data = driver.Open(shp, 0)
 	layer = data.GetLayer()
 	for feature in layer:
@@ -46,4 +48,7 @@ def processByXML (infolder, shp ,province, outfolder):
 	os.remove(properties2)
 	# shutil.rmtree(infolder)
 
-
+# shp = 'C:/Users/longdt/Desktop/Duy/project/rice/input/angiang/angiang.shp'
+# province = 'angiang'
+# outfolder = 'C:/Users/longdt/Desktop/Duy/project/rice/raw_s1/rice_anGiang'
+# processByXML('C:/Users/longdt/Desktop/Duy/project/rice/raw_s1/new', shp, province, outfolder)
